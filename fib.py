@@ -1,4 +1,5 @@
 from functools import lru_cache
+import time
 from time import time_ns
 
 
@@ -11,13 +12,18 @@ def s(n):
         return new
 
 
+# 1 1 2 3 5 8 13
 def run():
+    global e
     t = time_ns()
-    for i in range(7000):
-        print(str(s(i)))
+    for i in range(selected):
+        e = str(s(i))
     print('DONE')
+    print(e)
     elapsed_time = time_ns() - t
     print(elapsed_time)
 
 
+selected = int(input('n = ?'))
 run()
+time.sleep(60)
